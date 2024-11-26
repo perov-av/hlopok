@@ -1,9 +1,96 @@
+@use 'block/vars' as *
+@use 'block/mixins' as *
 /* Стили шапки сайта */
-
-.test-header 
-	color: navajowhite
+.header__wrap
+	position: relative
+	width: 100%
+	min-height: 100vh
+	padding: 6,25rem
 	display: flex
+	justify-content: space-between
+	align-items: center
+	background-color: #{$secondary}
+	overflow: hidden
+	.circle
+		position: absolute
+		right: -40%
+		top: -67%
+		width: 70rem
+		height: 70rem
+		background-color: #{$accent}
+		// clip-path: circle (20% at -20% -20%)
+		border-radius: 50%
 
+header
+	position: absolute
+	top: 0
+	left: 0
+	width: 100%
+	padding: 1.8rem 2.1rem
+	display: flex
+	justify-content: space-between
+	align-items: center
+	color: #fff
+	font-weight: 600
+	letter-spacing: .08rem
+	.logo
+		position: relative
+		max-width: 9rem
+	.header__menu
+		position: relative
+		display: flex
+		gap: 1rem
+		.header__menu-item a
+			display: inline-block
+
+.banner
+	position: relative
+	color: #fff
+	display: flex
+	justify-content: space-between
+	align-items: center
+	.banner__content
+		position: relative
+		max-width: 600px
+		margin-right: 1rem
+		padding-left: 2.6rem
+		.banner__content-img
+			max-width: 5rem
+			margin-bottom: .9rem
+			margin-left: 8%
+		.banner__content-title 
+			font-size: 1.8rem
+			margin-bottom: 1rem
+			font-weight: 500
+			font-family: Noto, sans-serif
+			line-height: 1.5rem
+			letter-spacing: 2px
+			em
+				font-family: Arkhip, sans-serif
+				font-size: 2rem
+				text-transform: uppercase
+				letter-spacing: normal
+		.banner__content-subtitle
+			margin-bottom: 0.6rem
+			font-size: 1.1rem
+		.slogan
+			font-size: .8rem
+			margin-bottom: 1.7rem
+.btn_wrap
+	display: flex
+	justify-content: start
+	align-items: center
+	gap: 3rem
+	a
+		position: relative
+		display: inline-block
+		padding: 8px 20px
+	a.btn
+		@include btn
+
+
+	
+	
 @media (max-width: 700px) 
 	p 
 		display: none

@@ -1,0 +1,33 @@
+@use 'block/vars' as *
+@mixin btn 
+	padding: 10px 20px
+	position: relative
+	background-color: #{$light}
+	color: #{$secondary}
+	font-weight: 600
+	letter-spacing: 0.6px
+	border-radius: 14px
+	border: 2px solid #{$secondary}
+	filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5))
+	transition: all .35s ease
+	&:hover
+		background-color: #{$accent}
+		color: #fff
+	.spark
+		position: absolute
+		left: 50%
+		top: 50%
+		width: 20px
+		height: 20px
+		border-radius: 50%
+		pointer-events: none
+		background: #0a87ff
+		z-index: -1
+		animation: animate 2s linear forwards
+		&:nth-child(even)
+			background: transparent
+			border: 1px solid #fff
+
+			
+
+

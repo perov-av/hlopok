@@ -1,16 +1,37 @@
-@use 'block/reset' as *
+@use 'block/reset.css' as *
 @use 'block/vars' as *
 /* Подключаем шрифты */
 @use 'block/fonts' as *
 
+@use 'block/mixins' as *
+
 /* Ниже подключаем отдельные файлы CSS по блокам и по подключаемым библиотекам */
 @use 'block/header' as *
+
 @use 'block/footer' as *
 
 /* Основные стили */
-footer
-	color: #0704b6
-	// font-size: $basefz
-h1
-	font-size: #{$basefz}
-	font-weight: 900
+*
+	font-size: #{$fz}
+body
+	font-family: Inter, sans-serif
+	box-sizing: border-box
+	line-height: 1.4rem
+	overflow: hidden
+	position: relative
+
+.container
+	max-width: 1680px
+	margin: 0 auto
+	padding: 20px
+	
+@keyframes animate
+
+	0%
+		opacity: 1
+		transform: translate(0,0)
+		
+	100%
+		opacity: 0
+		transform: translate(var(--x),var(--y))
+	
