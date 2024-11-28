@@ -5,7 +5,7 @@
 	position: relative
 	width: 100%
 	min-height: 100vh
-	padding: 6,25rem
+	padding: 6rem 25rem
 	display: flex
 	justify-content: space-between
 	align-items: center
@@ -13,29 +13,52 @@
 	overflow: hidden
 	.circle
 		position: absolute
-		right: -40%
-		top: -67%
+		
+		// для фото
+		// right: -14%
+		// top: 17%
+		// width: 50rem
+		// height: 42rem
+		// background-image: url(../img/main-foto1.jpg)
+		// background-size: cover
+		// background-position: center
+		// background-repeat: no-repeat
+		
+		// Для цветного круга
+		background-color: #{$accent}
+		right: -31%
+		top: -52%
 		width: 70rem
 		height: 70rem
-		background-color: #{$accent}
 		// clip-path: circle (20% at -20% -20%)
 		border-radius: 50%
+		&::before
+			content: ''
+			width: 100%
+			height: 100%
+			position: absolute
+			top: 0
+			left: 0
+			background-color: #{$secondary}
+			opacity: .4
+
 
 header
 	position: absolute
-	top: 0
+	top: .5rem
 	left: 0
 	width: 100%
 	padding: 1.8rem 2.1rem
 	display: flex
 	justify-content: space-between
 	align-items: center
-	color: #fff
+	color: #{$white}
 	font-weight: 600
 	letter-spacing: .08rem
+	border-bottom: 1px solid rgba(#fff, .2)
 	.logo
 		position: relative
-		max-width: 9rem
+		max-width: 11rem
 	.header__menu
 		position: relative
 		display: flex
@@ -49,51 +72,247 @@ header
 	display: flex
 	justify-content: space-between
 	align-items: center
+	width: 100%
 	.banner__content
 		position: relative
-		max-width: 600px
+		max-width: 800px
 		margin-right: 1rem
-		padding-left: 2.6rem
+		padding-left: 3rem
 		.banner__content-img
 			max-width: 5rem
 			margin-bottom: .9rem
-			margin-left: 8%
+			margin-left: 10%
 		.banner__content-title 
-			font-size: 1.8rem
-			margin-bottom: 1rem
+			font-size: 2.2rem
+			margin-bottom: 2rem
 			font-weight: 500
 			font-family: Noto, sans-serif
-			line-height: 1.5rem
+			line-height: 1.8rem
 			letter-spacing: 2px
 			em
 				font-family: Arkhip, sans-serif
-				font-size: 2rem
+				font-size: 2.5rem
 				text-transform: uppercase
 				letter-spacing: normal
 		.banner__content-subtitle
-			margin-bottom: 0.6rem
+			margin-bottom: 1.7rem
 			font-size: 1.1rem
 		.slogan
 			font-size: .8rem
-			margin-bottom: 1.7rem
+			margin-bottom: 5rem
+	.imgBox
+		position: relative
+		width: 100%
+		display: flex
+		justify-content: center
+		
+
 .btn_wrap
 	display: flex
 	justify-content: start
 	align-items: center
-	gap: 3rem
+	gap: 4rem
 	a
 		position: relative
 		display: inline-block
 		padding: 8px 20px
 	a.btn
 		@include btn
+	.play
+		position: relative
+		padding: 0
+		width: 48px
+		height: 48px
+		border-radius: 50%
+		img
+			width: 100%
+		&::after, &::before
+			position: absolute
+			content: ''
+			border: 2px solid #{$white}
+			left: -20px
+			right: -20px
+			top: -20px
+			bottom: -20px
+			border-radius: 50%
+			opacity: 0
+			animation: pulse 3s linear infinite
+		&::after
+			animation-delay: 1.5s
+
+.phone-wrap
+	display: flex
+	justify-content: end
+	gap: 0.9rem
+	align-items: center
+
+.sci
+	position: absolute
+	bottom: 3.5rem
+	left: 5rem
+	display: flex
+	justify-content: center
+	align-items: center
+	gap: 2rem
+	li
+		transition: all .35s linear
+		transform: scale(1.7)
+		&:hover
+				transform: scale(2) translateY(-15px)
+		a
+			display: inline-block
+			display: flex
+			justify-content: center
+			align-items: center
+			perspective: 500px
+			transform-style: preserve-3d
+			border-radius: 50%
+			box-shadow: 0 20px 35px rgba(0, 0, 0, .3)
+			transition: all .35s linear
+
+// SWIPER
+.swiper-container
+	// width: 100%
+	position: relative
+	width: 500px
+	height: 400px
+	display: flex
+	justify-content: center
+	align-items: center
+	// padding-top: 50px
+	// padding-bottom: 50px
+	.swiper-wrapper
+		margin: 0 auto
+
+.swiper-slide
+	// display: flex
+	// justify-content: center
+	// align-items: center
+
+	img
+		max-width: 100%
+		max-height: 100%
+		object-fit: cover
+
+.swiper-container-3d
+	.swiper-slide-shadow-left, .swiper-slide-shadow-right
+		// background-image: none
+
+.header__menu.active
+	z-index: 100
+	position: fixed
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+	background-color: #{$secondary}
+	display: flex
+	flex-direction: column
+	justify-content: center
+	align-items: center
+	gap: 4rem
+	.header__menu-item
+		a
+			font-size: 2.5rem
+
+
+	// Animations
+@keyframes pulse
+	0%
+		opacity: 0
+		transform: scale(0.5)
+	50%
+		opacity: 1
+		
+	100%
+		opacity: 0
+		transform: scale(1.2)
+		
+			
 
 
 	
 	
-@media (max-width: 700px) 
-	p 
-		display: none
+@media (max-width: 1200px)
+	*
+		font-size: 18px 
 
-span 
-	font-size: 10px
+
+@media (max-width: 990px)
+	*
+		font-size: 16px 
+	.banner 
+		.banner__content 
+			.banner__content-title
+				line-height: 1
+	
+@media (max-width: 900px)
+	header
+		top: 0
+		background-color: #{$secondary}
+		.header__menu
+			display: none
+		.toggle
+			display: flex
+			margin-right: 0
+	.header__wrap
+		.circle
+			right: -4%
+			top: -52%
+			width: 60rem
+			height: 60rem
+			&::before
+				opacity: .7
+	
+
+@media (max-width: 800px)
+	.banner
+		flex-direction: column
+		padding-top: 180px
+		gap: 5rem
+		// min-height: 100vh
+		.banner__content
+			width: 100%
+		.imgBox
+			margin-bottom: 9rem
+	.header__wrap
+		height: auto
+	.swiper-container
+		width: 100%
+		height: 400px
+	.sci
+		left: 50%
+		transform: translateX(-50%)
+		gap: 4rem
+	.header__wrap
+		.circle
+			right: -17%
+			top: -43%
+
+@media (max-width: 600px)
+	header
+		// background-color: #{$secondary}
+		letter-spacing: normal
+		.logo
+			max-width: 8rem
+		.phone-icon
+			display: none
+		.header__phone
+			.header__phone-item
+				font-size: 10px
+
+@media (max-width: 430px)
+	header
+		.header__menu.active
+			.header__menu-item
+				a
+					font-size: 1.5rem
+		.header__phone
+			display: none
+	.banner 
+		.banner__content 
+			padding: .5rem
+			.banner__content-title
+				font-size: 1.8rem
+				em
+					font-size: 2rem

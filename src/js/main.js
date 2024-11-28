@@ -1,5 +1,5 @@
-// Magic button
 
+// Magic button
 let button = document.getElementById('button');
 console.log(button)
 button.addEventListener('mouseenter', function(){
@@ -28,4 +28,62 @@ button.addEventListener('mouseenter', function(){
 			spark.remove();
 		}, 2000);
 	}
-})
+});
+
+// 3D вращение
+VanillaTilt.init(document.querySelectorAll(".sci li a"), {
+	max: 25,
+	speed: 400,
+	glare: true,
+	"max-glare": 1,
+});
+
+// SWIPER
+var swiper = new Swiper('.swiper-container', {
+	effect: 'cards',
+	grabCursor: true,
+	centeredSlides: true,
+	slidesPerView: 'auto',
+	slidesOffsetBefore: 50,
+	spaceBetween: 20,
+	mousewheel: true,
+	slidesPerView: 1,
+	coverflowEffect: {
+		rotate: 0,
+		stretch: 0,
+		depth: 200,
+		modifier: 1,
+		slideShadows: true,
+	},
+	// navigation: {
+	// 	nextEl: '.swiper-button-next',
+	// 	prevEl: '.swiper-button-prev',
+	// },
+	loop: true,
+	autoplay: {
+	delay: 4000,
+	disableOnInteraction: false
+	},
+	// breakpoints: {
+	// 	580: {
+	// 		slidesPerView: 1,
+	// 		spaceBetween: 15,
+	// 	},
+	// 	768: {
+	// 		slidesPerView: 2,
+	// 		spaceBetween: 15,
+	// 	},
+	// 	1024: {
+	// 		slidesPerView: 3,
+	// 		spaceBetween: 15,
+	// 	},
+});
+
+// toggle MENU
+
+let toggle = document.querySelector ('.toggle');
+let nav = document.querySelector ('.header__menu')
+toggle.onclick = function() {
+	toggle.classList.toggle('active')
+	nav.classList.toggle('active')
+}

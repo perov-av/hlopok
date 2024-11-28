@@ -2,17 +2,17 @@
 @mixin btn 
 	padding: 10px 20px
 	position: relative
-	background-color: #{$light}
-	color: #{$secondary}
+	background-color: #{$accent}
+	color: #{$white}
 	font-weight: 600
 	letter-spacing: 0.6px
 	border-radius: 14px
-	border: 2px solid #{$secondary}
+	// border: 2px solid #{$accent}
 	filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5))
 	transition: all .35s ease
 	&:hover
-		background-color: #{$accent}
-		color: #fff
+		background-color: #{$light}
+		color: #{$accent}
 	.spark
 		position: absolute
 		left: 50%
@@ -28,6 +28,37 @@
 			background: transparent
 			border: 1px solid #fff
 
-			
+.toggle
+	background-color: transparent
+	width: 30px
+	height: 30px
+	// display: flex
+	flex-direction: column
+	justify-content: center
+	align-items: center
+	gap: 8px
+	display: none
+	cursor: pointer
+	transition: all .15s ease
+	margin-right: 3rem
+	z-index: 100
+	span
+		display: block
+		height: 3px
+		width: 100%
+		background-color: #{$white}
+		transition: all .15s ease
+
+.toggle.active
+	display: block
+	transform: translateY(10px)
+	transition: all .15s ease
+	span:nth-child(2)
+		display: none
+	span:nth-child(1)
+		transform: translateY(4px) rotate(45deg)
+	span:nth-child(3)
+		transform: rotate(-45deg)
+
 
 
