@@ -79,11 +79,33 @@ var swiper = new Swiper('.swiper-container', {
 	// 	},
 });
 
-// toggle MENU
 
+// toggle MENU
 let toggle = document.querySelector ('.toggle');
 let nav = document.querySelector ('.header__menu')
 toggle.onclick = function() {
 	toggle.classList.toggle('active')
 	nav.classList.toggle('active')
-}
+};
+
+// Видео 
+function toggleV() {
+	var trailer = document.querySelector('.trailer');
+	var video = document.querySelector('video');
+	trailer.classList.toggle('active-video');
+	video.currentTime = 0;
+	video.pause();
+};
+
+// Анимация заголовка
+// 1. Делим на спаны
+// const text = document.querySelector('.textAnim');
+// text.innerHTML = text.textContent.replace(/\S/g, "<span>$&</span>");
+
+// anime.timeline({
+// 	loop: true
+// })
+// .add({
+// 	targets: '.text span',
+// 	translateY: [-600,0]
+// })

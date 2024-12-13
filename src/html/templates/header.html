@@ -38,15 +38,22 @@
 		<div class="banner">
 
 			<div class="banner__content">
-				<div class="banner__content-img">
+				<div class="banner__content-img animate__animated animate__flip">
 					<img src="img/logo-icon-white.png" alt="Логотип Прачечной Хлопок">
 				</div>
-				<h1 class="banner__content-title"><em>Хлопок</em> - сеть прачечных самообслуживания</h1>
+				<h1 class="banner__content-title"><em class="textAnim">
+					<span class="animate__animated animate__lightSpeedInRight">Х</span>
+					<span class="animate__animated animate__lightSpeedInRight">л</span>
+					<span class="animate__animated animate__lightSpeedInRight">о</span>
+					<span class="animate__animated animate__lightSpeedInRight">п</span>
+					<span class="animate__animated animate__lightSpeedInRight">о</span>
+					<span class="animate__animated animate__lightSpeedInRight">к</span>
+				</em> - сеть прачечных самообслуживания</h1>
 				<h3 class="banner__content-subtitle">Стираем и сушим крупногабаритные вещи на профессиональном оборудовании SimpleClean и Electrolux вместимостью от 13 кг.</h3>
 				<p class="slogan">Практично и недорого!</p>
 				<div class="btn_wrap">
 					<a href="#" class="btn" id="button">Постираться</a>
-					<a href="#" class="play"><img src="img/gallery.png" alt="Видео прачечной ХлОпок"></a>
+					<a href="#" class="play animate__animated animate__heartBeat animate__infinite" onclick="toggleV()"><img src="img/gallery.png" alt="Видео прачечной ХлОпок"></a>
 				</div>
 			</div>
 			<div class="imgBox">
@@ -87,6 +94,10 @@
 					
 			</a></li>
 		</ul>
+		<div class="trailer">
+			<video src="video/video.mp4" controls="true" loop="true" muted></video>
+			<img src="img/close.png" alt="Видеообзор прачечных Хлопок" class="close" onclick="toggleV()">
+		</div>
 	
 	</section>
 
