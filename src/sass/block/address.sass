@@ -1,0 +1,171 @@
+@use 'block/vars' as *
+
+.section.address
+	// background-color: #{$lightblue}
+
+nav.address-nav
+	padding-top: 3rem
+	padding-bottom: 3rem
+	ul
+		display: flex
+		justify-content: space-around
+		align-items: center
+		flex-wrap: wrap
+		gap: 1rem 0.8rem
+		li
+			cursor: pointer
+			padding: .5rem 1rem
+			background-color: rgba(255,255,255, 0.7) 
+			letter-spacing: 1px
+			font-size: 0.8rem
+			text-transform: uppercase
+			font-weight: 600
+			border: 2px solid #{$accent}
+			border-radius: 20px
+			color: #{$accent}
+			transition: 0.5s
+			transition-delay: 0.5s
+			position: relative
+			overflow: hidden
+			&.active
+				background-color: #{$accent}
+				filter: drop-shadow(0 0 10px #{$accent}) drop-shadow(0 0 30px #{$accent})
+				color: #{$white}
+			span
+				position: absolute
+				left: 0
+				width: 100%
+				height: 2px
+				background: #{$accent}
+				z-index: -1
+				transform: scaleX(0)
+				transform-origin: right
+				transition: transform 0.25s ease-in-out
+			&:hover
+				filter: drop-shadow(0 0 10px #{$accent}) drop-shadow(0 0 30px #{$accent})
+				color: #{$white}
+				span
+					transform: scale(1)
+					transform-origin: left
+
+.address-wrap
+	display: grid
+	grid-template-columns: 1fr 1fr
+	gap: 4rem
+.address__card
+	background-color: #fff
+	filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5))
+	&.hide
+		display: none
+.address__card-map
+	// margin-bottom: .8rem
+.address__card-content
+	padding: 0 1.5rem
+	padding-bottom: 2rem
+	display: flex
+	flex-direction: column
+	gap: 0.3rem
+	h3
+		color: #{$secondary}
+		// font-size: 1.2rem
+		font-weight: 700
+		text-align: center
+		line-height: 1.3
+	address, a
+		position: relative
+		padding-left: 30px
+		font-size: 0.8rem
+		&::before
+			display: block
+			content: ''
+			width: 20px
+			height: 20px
+			position: absolute
+			top: 50%
+			transform: translateY(-50%)
+			left: 0
+			background-position: center center
+			background-repeat: no-repeat
+			background-size: contain
+
+
+.card-content-address
+	&::before
+		background-image: url(../img/map.png)
+.card-content-tel
+	&::before
+		background-image: url(../img/telephone.svg)
+.card-link-ya
+	&::before
+		background-image: url(../img/Yandex_icon.png)
+.card-link-vk
+	&::before
+		background-image: url(../img/VK-light.svg)
+.card-link-gis
+	&::before
+		background-image: url(../img/GIS.png)
+
+
+		
+
+.address__card-links
+	padding: 0.5rem
+	// border: 1px solid #{$secondary}
+	border-radius: 20px
+	ul
+		display: flex
+		justify-content: space-around
+		align-items: center
+		flex-wrap: wrap
+		gap: 1rem .5rem
+		li
+			font-size: 0.6rem
+			padding: 0.3rem 0.8rem
+			border-radius: 20px
+			border: 1px solid #{$secondary}
+			transition: 0.35s
+			&:hover
+				background-color: #{$secondary}
+				color: #{$white}
+
+
+.address__card-timeWork
+	display: grid
+	grid-template-columns: 1fr 1fr
+	justify-content: center
+	align-items: start
+	gap: 2rem
+	// padding: 1rem
+	.timeWork-pracka
+		display: flex
+		flex-direction: column
+		justify-content: center
+		align-items: center
+		.timeWork-pracka-img
+			display: flex
+			justify-content: center
+			align-items: center
+			margin-bottom: 0.5rem
+			svg
+				max-width: 30px
+			img
+				max-width: 30px
+				display: block
+				margin: 0 auto
+				margin-bottom: 5px
+		h4
+			// margin-bottom: 0.3rem
+			text-transform: uppercase
+			color: #{$secondary}
+			position: relative
+			text-align: center
+			font-size: 0.7rem
+			line-height: 1.1
+		p
+			font-size: 0.6rem
+			text-align: center
+
+
+@media (max-width: 930px)
+	.address-wrap
+		grid-template-columns: 1fr

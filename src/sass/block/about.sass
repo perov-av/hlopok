@@ -1,0 +1,56 @@
+@use 'block/vars' as *
+@use 'block/mixins' as *
+
+.about__wrap
+	// display: flex
+	// gap: 2rem
+	// justify-content: space-between
+	// align-items: flex-start
+	.about__img
+		float: left
+		max-width: 45%
+		padding-top: 0
+		padding-right: 2rem
+		padding-bottom: 2rem
+		img
+			border-radius: 40px
+	.about__text
+		position: relative
+		padding-right: 1rem
+		padding-left: 1rem
+		cursor: default
+		span
+			position: absolute
+			display: block
+			width: 0
+			height: 0
+			border-radius: 50%
+			background-color: #{$secondary}
+			transition: 0.1s
+			transform: translate(-50%, -50%)
+			mix-blend-mode: color
+			overflow: hidden
+		&:hover
+			span
+				width: 300px
+				height: 300px
+		h3, p
+			margin-bottom: 1rem
+			text-align: justify
+		.about__text-bold
+			font-weight: 700
+			margin-bottom: .8rem
+		ul li
+			list-style: disc
+			text-align: justify
+
+@media (max-width: 600px)
+	.about__wrap
+		display: flex
+		flex-direction: column
+		gap: 2rem
+		justify-content: center
+		align-items: center
+		.about__img
+			max-width: 65%
+			

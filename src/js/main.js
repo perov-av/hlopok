@@ -1,7 +1,7 @@
 
 // Magic button
 let button = document.getElementById('button');
-console.log(button)
+
 button.addEventListener('mouseenter', function(){
 	for(let i=0; i < 50; i++){
 		let spark = document.createElement('i');
@@ -31,12 +31,12 @@ button.addEventListener('mouseenter', function(){
 });
 
 // 3D вращение
-VanillaTilt.init(document.querySelectorAll(".sci li a"), {
-	max: 25,
-	speed: 400,
-	glare: true,
-	"max-glare": 1,
-});
+// VanillaTilt.init(document.querySelectorAll(".sci li a"), {
+// 	max: 25,
+// 	speed: 400,
+// 	glare: true,
+// 	"max-glare": 1,
+// });
 
 // SWIPER
 var swiper = new Swiper('.swiper-container', {
@@ -97,15 +97,64 @@ function toggleV() {
 	video.pause();
 };
 
-// Анимация заголовка
-// 1. Делим на спаны
-// const text = document.querySelector('.textAnim');
-// text.innerHTML = text.textContent.replace(/\S/g, "<span>$&</span>");
+// Движение мышью с кругом
+document.querySelectorAll('.about__text').forEach(function(box){
+	box.addEventListener('mousemove', function(e){
+		let x = e.pageX - box.offsetLeft;
+		let y = e.pageY - box.offsetTop;
 
-// anime.timeline({
-// 	loop: true
-// })
-// .add({
-// 	targets: '.text span',
-// 	translateY: [-600,0]
-// })
+		document.querySelectorAll('span').forEach(function(span){
+			span.style.left = x + 'px';
+			span.style.top = y + 'px';
+		})
+		
+	})
+})
+
+// Пузырьки на заднем фоне
+function createBuble(){
+	const section = document.querySelector('.service');
+	const createElement = document.createElement('span');
+	var size = Math.random() * 60;
+
+	createElement.style.width = 20 + size + 'px';
+	createElement.style.height = 20 + size + 'px';
+	createElement.style.left = Math.random() * innerWidth + 'px';
+	section.appendChild(createElement);
+
+	setTimeout(() => {
+		createElement.remove()
+	}, 4000);
+}
+setInterval(createBuble,50);
+
+// Полоски на кнопки с городами
+document.addEventListener('DOMContentLoaded', function(){
+	let btnsLi = document.querySelectorAll('nav.address-nav ul li');
+	btnsLi.forEach(function(btnLi){
+		const spans = [];
+		for (let i=0; i<40; i++){
+			let span = document.createElement('span');
+			span.style.top = `${i * 2}px`
+			spans.push(span);
+			btnLi.appendChild(span);
+
+			let randomDelay = (Math.random() * 0.75) + 0;
+			span.style.transitionDelay = randomDelay + 's';
+		}
+	})
+});
+
+// Фильтрация городов
+const filterAddressCard = document.querySelectorAll('.address__card');
+document.querySelector('nav.address-nav').addEventListener('click', event => {
+	if (event.target.tagName !== 'LI') return false;
+	let filterClass = event.target.dataset['f'];
+
+	filterAddressCard.forEach( elem => {
+		elem.classList.remove('hide');
+		if(!elem.classList.contains(filterClass) && filterClass!== 'all') {
+			elem.classList.add('hide');
+		}
+	});
+})

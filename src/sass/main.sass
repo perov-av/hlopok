@@ -9,6 +9,11 @@
 
 /* Ниже подключаем отдельные файлы CSS по блокам и по подключаемым библиотекам */
 @use 'block/header' as *
+@use 'block/about' as *
+@use 'block/stirka' as *
+@use 'block/service' as *
+@use 'block/benefits' as *
+@use 'block/address' as *
 
 @use 'block/footer' as *
 
@@ -21,11 +26,29 @@ body
 	line-height: 1.4rem
 	// overflow: hidden
 	position: relative
+	background-color: #{$white}
+
+.bg
+	background-color: #{$secondary}
 
 .container
 	max-width: 1680px
 	margin: 0 auto
 	padding: 20px
+
+.section
+	padding-top: 5rem
+	padding-bottom: 5rem
+	background-color: #{$white}
+
+.section__title 
+	font-size: 2.2rem
+	font-weight: 700
+	color: #{$secondary}
+	text-align: center
+	margin-bottom: 3rem
+	line-height: 1.3
+
 	
 @keyframes animate
 

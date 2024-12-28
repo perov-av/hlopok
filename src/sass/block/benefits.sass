@@ -1,0 +1,66 @@
+@use 'block/vars' as *
+
+.benefits__content
+	margin: 0 auto
+	position: relative
+	max-width: 1200px
+	display: grid
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))
+	.benefits__content-item
+		position: relative
+		display: flex
+		flex-direction: column
+		background-color: #{$lightblue}
+		&:nth-child(even)
+			flex-direction: column-reverse
+
+.benefits__item-img
+	position: relative
+	// width: 375px
+	// height: 250px
+	img
+		// position: absolute
+		// left: 0
+		// top: 0
+		// width: 100%
+		// height: 100%
+		object-fit: cover
+
+.benefits__item-content
+	position: relative
+	// width: 375px
+	// height: 250px
+	display: flex
+	justify-content: center
+	align-items: center
+	flex-direction: column
+	padding: 15px
+	height: 100%
+	h3
+		text-align: center
+		color: #{$secondary}
+		font-size: 1.1rem
+		margin-bottom: 10px
+	p
+		font-size: 0.9rem
+		text-align: justify
+
+@media (max-width: 1220px)
+	.benefits__content
+		padding: 15px
+		grid-template-columns: 1fr 1fr 
+		// gap: 2rem
+		.benefits__content-item
+			// border-radius: 20px
+			&:nth-child(even)
+				// flex-direction: column
+	.benefits__item-content
+		h3
+			font-size: 1.2rem
+@media (max-width: 600px)
+	.benefits__content
+		grid-template-columns: 1fr
+		gap: 2rem
+		.benefits__content-item
+			&:nth-child(even)
+				flex-direction: column
