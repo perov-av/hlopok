@@ -30,6 +30,7 @@ button.addEventListener('mouseenter', function(){
 	}
 });
 
+
 // 3D вращение
 // VanillaTilt.init(document.querySelectorAll(".sci li a"), {
 // 	max: 25,
@@ -87,6 +88,10 @@ toggle.onclick = function() {
 	toggle.classList.toggle('active')
 	nav.classList.toggle('active')
 };
+nav.onclick = function() {
+	toggle.classList.remove('active')
+	nav.classList.remove('active')
+}
 
 // Видео 
 function toggleV() {
@@ -147,14 +152,37 @@ document.addEventListener('DOMContentLoaded', function(){
 
 // Фильтрация городов
 const filterAddressCard = document.querySelectorAll('.address__card');
-document.querySelector('nav.address-nav').addEventListener('click', event => {
-	if (event.target.tagName !== 'LI') return false;
-	let filterClass = event.target.dataset['f'];
 
+document.querySelector('nav.address-nav').addEventListener('click', event => {
+	if (event.target.tagName !== 'LI')  return false;
+	let cityClass = document.querySelectorAll('nav.address-nav ul li')
+
+	cityClass.forEach( el => {
+		el.classList.remove('active');
+	})
+	// city.classList.remove('active');
+	event.target.classList.add('active');
+	let filterClass = event.target.dataset['f'];
 	filterAddressCard.forEach( elem => {
 		elem.classList.remove('hide');
 		if(!elem.classList.contains(filterClass) && filterClass!== 'all') {
 			elem.classList.add('hide');
 		}
 	});
-})
+});
+
+
+// Плавный скролл
+const anchors = document.querySelectorAll('a[href*="#"]');
+
+for(let anchor of anchors) {
+	anchor.addEventListener('click', function(e) {
+		e.preventDefault();
+
+		const blockID = anchor.getAttribute('href').substr(1);
+		document.getElementById(blockID).scrollIntoView({
+			behavior: 'smooth',
+			block: 'start',
+		})
+	})
+}

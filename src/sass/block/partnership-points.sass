@@ -1,0 +1,133 @@
+@use 'block/vars' as *
+
+.partnership
+	padding-top: 2.5rem
+	padding-bottom: 2.5rem
+	position: relative
+
+.partnership-title
+	// font-family: #{$lightblue}
+	font-size: 2.4rem
+	font-weight: 700
+	text-align: center
+	margin-bottom: 3.5rem
+
+.partnership__item
+	margin-bottom: 5rem
+	display: flex
+	align-items: start
+	gap: 8rem
+	justify-content: space-between
+
+.partnership__item-direct
+	display: flex
+	align-items: center
+	gap: 2rem
+	justify-content: space-between
+	min-width: 40%
+	padding: 2rem 2.5rem
+	background-color: #{$lightblue}
+	border-radius: 20px
+	position: relative
+	&::after
+		content: ""
+		width: 30px
+		height: 50px
+		position: absolute
+		top: 35px
+		right: -25px
+		background-image: url(../img/arrow.png)
+		background-repeat: no-repeat
+		background-size: cover
+	&::before
+		content: ""
+		width: 48px
+		height: 48px
+		position: absolute
+		top: 35px
+		left: 112%
+		border: 12px solid #{$accent}
+		border-radius: 50%
+		display: block
+		z-index: 3
+		background-color: #fff
+	
+
+.partnership__direct-img
+	min-width: 30%
+	img
+		width: 100%
+		height: auto
+
+.partnership__direct-name
+	font-size: 1.2rem
+	line-height: 1.3
+	font-weight: 700
+
+
+.partnership__item-desc-p
+	margin-bottom: 1rem
+		
+#partnership__item-desc-list
+	list-style-type: disc
+	li
+		list-style: disc !important
+		margin-bottom: 1rem
+		padding-left: 1rem
+
+.partnership-wrap
+	position: relative
+	padding-top: 2rem
+	
+	&::after
+		content: ""
+		position: absolute
+		width: 4px
+		height: 100%
+		top: 0
+		left: 46.5%
+		background-color: #{$secondary}
+
+
+
+@media screen and ( max-width: 990px )
+	.partnership-wrap::after
+		left: 47%
+	.partnership__item-direct
+		gap: 1rem
+		padding: 1rem 1.5rem
+	
+
+@media screen and ( max-width: 767px )
+	.partnership__item
+		display: block
+		background-color: #{$lightblue}
+		padding: 2rem 3rem
+	.partnership-wrap::after
+		display: none
+	.partnership__item-direct::before, .partnership__item-direct::after
+		display: none
+	.partnership__direct-img img
+		width: 100px
+	.partnership__direct-name
+		font-size: 1.7rem
+	.partnership__item-direct
+		margin-bottom: 2rem
+		padding-left: 0
+	.partnership__item-desc-p
+		font-size: 1rem
+		text-align: justify
+	.partnership__item-desc-list
+		li
+			font-size: 1rem
+
+
+@media screen and ( max-width: 650px )
+	// .partnership__direct-name
+	// 	font-size: rem
+
+
+@media screen and ( max-width: 480px )
+	.partnership__direct-name
+		font-size: 1.1rem
+

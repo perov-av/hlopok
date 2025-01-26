@@ -14,6 +14,9 @@
 @use 'block/service' as *
 @use 'block/benefits' as *
 @use 'block/address' as *
+@use 'block/faq' as *
+@use 'block/partnership-points' as *
+@use 'block/contacts' as *
 
 @use 'block/footer' as *
 
@@ -37,8 +40,8 @@ body
 	padding: 20px
 
 .section
-	padding-top: 5rem
-	padding-bottom: 5rem
+	padding-top: 1rem
+	padding-bottom: 3rem
 	background-color: #{$white}
 
 .section__title 
@@ -59,4 +62,7 @@ body
 	100%
 		opacity: 0
 		transform: translate(var(--x),var(--y))
-	
+
+@media screen and ( max-width: 650px )
+	.section
+		padding-top: 0

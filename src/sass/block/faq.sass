@@ -1,0 +1,88 @@
+
+@use 'block/vars' as *
+
+.tab__wrap
+	display: flex
+	justify-content: space-between
+	align-items: center
+	gap: 1rem
+	flex-wrap: wrap
+	.tab
+		.tab__content
+			max-height: 0
+			transition: 0.5s
+			overflow: hidden
+			p
+				padding: 10px 0
+				z-index: 10
+				text-align: justify
+				position: relative
+		width: 47%
+		position: relative
+		background: #fff
+		padding: 0 20px 25px
+		box-shadow: 0 15px 25px rgba(0, 0, 0, 0.05)
+		border-radius: 10px
+		overflow: hidden
+		input
+			appearance: none
+			&:checked ~ label::after
+				transform: rotate(135deg)
+				color: #fff
+			&:checked ~ .tab__content
+				max-height: 100vh
+				color: #fff
+				font-size: 0.8rem
+				font-weight: 300
+			&:checked ~ label h3
+				position: absolute
+				top: 0
+				left: 0
+				width: 100%
+				height: 100%
+				color: rgba(255, 255, 255, 0.2)
+				font-size: 8em
+				justify-content: flex-end
+				align-items: flex-end
+				padding: 20px
+			&:checked ~ label h4
+				background: #{$white}
+				box-shadow: 0 15px 25px rgba(0, 0, 0, 0.05)
+				border-radius: 10px
+		label
+			display: flex
+			align-items: center
+			cursor: pointer
+			h3
+				width: 40px
+				height: 40px
+				background: #333
+				display: flex
+				align-items: center
+				justify-content: center
+				color: #fff
+				font-size: 1.2em
+				border-radius: 5px
+				margin-right: 10px
+				padding: 8px
+				background: linear-gradient(135deg, #0097AA, #21DAFF)
+			h4
+				font-weight: 500
+				color: #333
+				z-index: 10
+				padding: 8px 20px 8px 8px
+			&::after
+				content: '+'
+				position: absolute
+				right: 15px
+				font-size: 2em
+				color: rgba(0,0 ,0 ,0.1 )
+				transition: transform .35s
+		&:hover
+			label::after
+				color: #333
+
+@media (max-width: 650px)
+	.tab__wrap
+		.tab
+			width: 100%
