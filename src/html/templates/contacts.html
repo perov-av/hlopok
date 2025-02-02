@@ -6,7 +6,12 @@
 		<section class="contacts__form">
 			
 				<div class="contacts__form-wrap">
-					<form class="contacts__form-main form-main" id="contacts__form-main">
+					<form class="contacts__form-main form-main uniForm" id="contacts__form-main">
+						<!-- Hidden Required Fields -->
+						<input type="hidden" name="project_name" value="Хлопок - сайт">
+						<input type="hidden" name="admin_email" value="info@hlopok-laundry.ru">
+						<input type="hidden" name="form_subject" value="Вопрос от посетителя сайта">
+						<!-- END Hidden Required Fields -->
 						<div class="form-main__name">
 							<label for="name-contacts">Имя</label>
 							<input id="name-contacts" type="text" name="name" autocomplete required placeholder="Иванов Иван"/>
