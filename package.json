@@ -48,6 +48,7 @@
     "sass": "^1.62.0"
   },
   "dependencies": {
-    "gulp-cssimport": "^7.0.0"
+    "gulp-cssimport": "^7.0.0",
+    "yarn": "^1.22.22"
   }
 }
